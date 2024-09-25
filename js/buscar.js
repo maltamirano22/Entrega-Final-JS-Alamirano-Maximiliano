@@ -1,28 +1,47 @@
-    const buscarInput = document.getElementById('buscar');
-    const resultadoDiv = document.getElementById('resultado');
-
-    // Evento para detectar cambios en el campo de búsqueda
-    buscarInput.addEventListener('input', () => {
-        const filtro = buscarInput.value.toLowerCase();
+// Función para buscar productos
+function buscarProductos(productos, query) {
     
-        if (filtro === '') {
-            resultadoDiv.textContent = 'Escribe para buscar un producto.';
-            return;
-        }
-        const productoEncontrado = productos.find(producto => 
-            producto.nombre.toLowerCase().includes(filtro)
-        );
+    if (query.trim() === "") {
+        return [];
+    }
+    return productos.filter(producto => producto.nombre.toLowerCase().includes(query.toLowerCase()));
+}
 
-        if (productoEncontrado) {
-            resultadoDiv.innerHTML = 
+// Muestra resultados en el DOM
+function mostrarResultados(resultados) {
+    const res = document.getElementById('resultado');
+    res.innerHTML = ''; 
+
+    if (resultados.length === 0) {
+    res.innerHTML = '<li>No se encontraron productos</li>';
+    } else {
+        resultados.forEach(producto => {
+            const prod = document.createElement('div');
+            prod.classList='buscar-prod'
+            prod.innerHTML= `
+            <img src="${producto.img}">
+            <h3>${producto.nombre}</h3>
+            <p>$${producto.precio}</p>
             `
-            <p>Producto encontrado: </p>
-            <p> ${productoEncontrado.nombre}</p>
-            <p>Precio: $ ${productoEncontrado.precio}</p> 
+            res.appendChild(prod);
 
-            `;
-        } else {
-            resultadoDiv.textContent = 'No se encontró ningún producto.';
-        }
+        });
+    }
+}
+
+// Fetch para obtener los productos desde productos.json
+
+fetch('../stockProductos.json')
+    .then(prod1 => prod1.json())
+    .then(productos => {
+        const inputBuscador = document.getElementById('buscar');
+        
+        inputBuscador.addEventListener('input', (event) => {
+            const query = event.target.value;
+            const resultados = buscarProductos(productos, query);
+            mostrarResultados(resultados);
+        });
+    })
+    .catch(error => {
+        console.error('Error al cargar los productos:', error);
     });
-

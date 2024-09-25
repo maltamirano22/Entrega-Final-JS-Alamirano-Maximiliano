@@ -1,5 +1,5 @@
-const productos = [
-{
+const stockProductos = [
+    {
     id:1,
     img:"../assets/images/productos/1.png",
     nombre:"Cortante",
@@ -83,37 +83,16 @@ const productos = [
     precio:65000,
     cantidad: 8,
 },
-{
-    id:13,
-    img:"../assets/images/productos/13.png",
-    nombre:"Molde-Autumn-Cakelet",
-    precio:4000,
-    cantidad: 0,
-},
-{
-    id:14,
-    img:"../assets/images/productos/14.png",
-    nombre:"Molde-Autumn-Delights",
-    precio:10000,
-    cantidad: 0,
-},
-{
-    id:15,
-    img:"../assets/images/productos/15.png",
-    nombre:"Molde-Autumn-Treats",
-    precio:8000,
-    cantidad: 0,
-},
-{
-    id:16,
-    img:"../assets/images/productos/16.png",
-    nombre:"Molde-Autumn-Wreath",
-    precio:6000,
-    cantidad: 0,
-},
-]
-const stockProductos = productos.filter((producto)=>{
-    return producto.cantidad > 0;
-    });
+
+];
+
+
+
+
+
+
+
+
     
+
 

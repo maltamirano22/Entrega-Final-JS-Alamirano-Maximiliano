@@ -34,6 +34,10 @@ header{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.089);
     padding: 10px 0;
 }
+.container-buscador{
+    width: 100%;
+    text-align: center;
+}
 header nav {
     display: flex;
     justify-content: space-between;
@@ -42,7 +46,7 @@ header nav {
 header nav div{
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
     position: relative;
 
 }
@@ -58,7 +62,7 @@ header nav div{
     position: absolute;
 }
 #logo {
-    height: 40px;
+    height: 60px;
     }
 header nav img {
     height: 25px;
@@ -70,4 +74,12 @@ footer{
 }
 .escondido {
     display: none;
+}
+
+#resultado{
+    display: flex;
+    flex-direction: column;
+}
+.buscar-prod img {
+    aspect-ratio: 1.5; 
 }
