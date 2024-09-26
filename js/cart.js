@@ -66,7 +66,9 @@ function actualizarTotales() {
 
 
 function reiniciarCarrito() {
+    const prod1 = JSON.parse(localStorage.getItem("stockProductos")) || [];
     // Mostrar el SweetAlert antes de vaciar el carrito
+    if (prod1.length > 0) {
     Swal.fire({
         title: '¿Estás seguro?',
         text: "¡Está a punto de vaciar el carrito!",
@@ -90,6 +92,7 @@ function reiniciarCarrito() {
             actualizarNumeroCarrito();
         }
     });
+}
 }
 reiniciarCarritoElement.addEventListener("click", reiniciarCarrito);
 
