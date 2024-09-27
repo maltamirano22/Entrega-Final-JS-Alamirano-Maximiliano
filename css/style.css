@@ -1,7 +1,7 @@
 :root{
-    --color-acento: rgba(219, 95, 23, 0.616);
-    --color-acento-claro: rgb(252, 210, 133);
-    --color-texto: black;
+    --color-acento: #ffd299;
+    --color-acento-claro: #F7EEDD;
+    --color-texto: #404040;
 }
 h3, p {
     margin: 10px;
