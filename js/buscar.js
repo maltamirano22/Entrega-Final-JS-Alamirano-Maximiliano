@@ -13,7 +13,7 @@ function mostrarResultados(resultados) {
     res.innerHTML = ''; 
 
     if (resultados.length === 0) {
-    res.innerHTML = '<li>No se encontraron productos</li>';
+    res.innerHTML = '';
     } else {
         resultados.forEach(producto => {
             const prod = document.createElement('div');
